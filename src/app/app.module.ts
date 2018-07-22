@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { DataTableComponent } from './data-table/data-table.component';
+import { UserDataTableComponent } from './user-data-table/user-data-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavbarComponent,
     AppFooterComponent,
-    DataTableComponent
+    DataTableComponent,
+    UserDataTableComponent
   ],
   imports: [
     BrowserModule,
