@@ -7,10 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { AppFooterComponent } from './app-footer/app-footer.component';
+import { DataTableComponent } from './data-table/data-table.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppNavbarComponent,
+    AppFooterComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,10 @@
-.example-icon {
-    padding: 0 14px;
+app-navbar {
+    color: #fff;
 }
-  
-.example-spacer {
-    flex: 1 1 auto;
+
+app-footer {
+    padding: 12px;
+    font-size: 12px;
+    margin-top: 40px;
+    color: #fff;
 }
-  

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatListModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule, MatTableDataSource } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -14,7 +16,17 @@ import { MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCar
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    LayoutModule,
+    FlexLayoutModule
   ]
 })
 export class MaterialModule { }
