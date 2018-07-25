@@ -2,6 +2,7 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~npm-font-open-sans/open-sans.css';
 .docs-app-background {
     background: #fafafa;
 }
@@ -11,7 +12,15 @@ body {
     margin: 0;
 }
 
+* {
+    font-family: 'Open Sans';
+}
+
 a:hover {
     color: inherit;
     text-decoration: inherit;
+}
+
+button:focus {
+    outline: none;
 }

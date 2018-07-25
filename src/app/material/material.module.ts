@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatListModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule, MatTableDataSource } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatListModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule, MatTableDataSource, MatStepperModule, MatStepperIntl, MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -9,7 +9,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    LayoutModule,
+    FlexLayoutModule
   ],
   exports: [
     MatButtonModule,
@@ -25,6 +38,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatSelectModule,
     LayoutModule,
     FlexLayoutModule
   ]

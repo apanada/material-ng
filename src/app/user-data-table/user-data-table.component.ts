@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { User } from '../models/user.model';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
-import { SelectionModel } from '@angular/cdk/collections';
+import { SelectionModel, CollectionViewer } from '@angular/cdk/collections';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { catchError, finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-data-table',
@@ -12,18 +13,23 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
   styleUrls: ['./user-data-table.component.css']
 })
 export class UserDataTableComponent implements OnInit {
-  dataSource = new UserDataSource(this.userService);
-  displayedColumns = ['select', 'name', 'email', 'phone', 'company'];
+  dataSource: UserDataSource<User>;
+  displayedColumns = ['select', 'name', 'email', 'phone', 'company', 'star'];
   selection = new SelectionModel<User>(true, []);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private userService: DataService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dataSource = new UserDataSource<User>(this.dataService);
+    this.dataSource.loadUsers();
+    this.dataSource.connect().subscribe(res => {
+      this.dataSource.data = res;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
   }
 
   applyFilter(filterValue: string): void {
@@ -43,16 +49,36 @@ export class UserDataTableComponent implements OnInit {
       this.selection.select(row);
     });
   }
+
+  onRowClicked(row) {
+    console.log('Row clicked: ', row);
+  }
 }
 
-export class UserDataSource extends MatTableDataSource<any> {
-  constructor(private userService: DataService) {
-    super();
+export class UserDataSource<T> extends MatTableDataSource<User> {
+  private usersSubject = new BehaviorSubject<User[]>([]);
+  private loadingSubject = new BehaviorSubject<boolean>(false);
+  public loading$ = this.loadingSubject.asObservable();
 
-    this.userService.loadUsers();
+  constructor(private dataService: DataService) {
+    super();
   }
+
   connect(): BehaviorSubject<User[]> {
-    return this.userService.UsersDataSource;
+    return this.usersSubject;
   }
-  disconnect() { }
+
+  disconnect(): void {
+    this.usersSubject.complete();
+    this.loadingSubject.complete();
+  }
+
+  loadUsers(): void {
+    this.loadingSubject.next(true);
+
+    this.dataService.getUsers().pipe(
+      catchError(() => of([])),
+      finalize(() => this.loadingSubject.next(false))
+    ).subscribe(users => this.usersSubject.next(users));
+  }
 }
