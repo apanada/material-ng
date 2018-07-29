@@ -31,7 +31,7 @@
               <mat-hint>{{firstFormGroup.controls.animal.value?.sound}}</mat-hint>
             </mat-form-field>
           </div>
-          <div>
+          <div class="col-md-12">
             <button mat-raised-button matStepperNext>Next</button>
           </div>
         </form>
@@ -39,12 +39,19 @@
       <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Fill out your address</ng-template>
-          <mat-form-field>
-            <input matInput placeholder="Address" formControlName="secondCtrl" required>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+          <div class="col-md-6 d-inline-block">
+            <mat-form-field>
+              <input matInput placeholder="Address" formControlName="address" required>
+              <mat-error *ngIf="secondFormGroup.get('address').invalid && secondFormGroup.get('address').dirty">Address is required. </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="What's your city?" formControlName="city" required>
+            </mat-form-field>
+            <button mat-raised-button (click)="openDialog()">Pick city</button>
+          </div>
+          <div class="col-md-12">
+            <button mat-raised-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext>Next</button>
           </div>
         </form>
       </mat-step>

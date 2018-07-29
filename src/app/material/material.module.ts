@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatListModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule, MatTableDataSource, MatStepperModule, MatStepperIntl, MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatSidenavModule, MatListModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule, MatTableDataSource, MatStepperModule, MatStepperIntl, MatFormFieldModule, MatSelectModule, MatDialogModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -21,6 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatStepperModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatDialogModule,
     LayoutModule,
     FlexLayoutModule
   ],
@@ -41,6 +42,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatStepperModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatDialogModule,
     LayoutModule,
     FlexLayoutModule
   ]

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { CityDialogComponent } from '../city-dialog/city-dialog.component';
 
 @Component({
   selector: 'app-material-form',
@@ -17,7 +19,7 @@ export class MaterialFormComponent implements OnInit {
     { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!' },
   ];
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -26,9 +28,23 @@ export class MaterialFormComponent implements OnInit {
       animal: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      address: ['', Validators.required],
+      city: ['', Validators.required]
     });
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CityDialogComponent, {
+      width: '250px',
+      disableClose: true,
+      data: { name: this.secondFormGroup.get('city').value }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.secondFormGroup.get('address').setValue(result);
+    });
+  }
+
 }
 
 export interface Animal {

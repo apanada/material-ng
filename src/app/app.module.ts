@@ -13,6 +13,7 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { UserDataTableComponent } from './user-data-table/user-data-table.component';
 import { MaterialFormComponent } from './material-form/material-form.component';
+import { CityDialogComponent } from './city-dialog/city-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MaterialFormComponent } from './material-form/material-form.component';
     AppFooterComponent,
     DataTableComponent,
     UserDataTableComponent,
-    MaterialFormComponent
+    MaterialFormComponent,
+    CityDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,9 @@ import { MaterialFormComponent } from './material-form/material-form.component';
     MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule
+  ],
+  entryComponents: [
+    CityDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
