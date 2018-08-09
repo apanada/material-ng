@@ -14,6 +14,8 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { UserDataTableComponent } from './user-data-table/user-data-table.component';
 import { MaterialFormComponent } from './material-form/material-form.component';
 import { CityDialogComponent } from './city-dialog/city-dialog.component';
+import { NgTrimTextDirective } from './directives/ng-trim-text/ng-trim-text.directive';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CityDialogComponent } from './city-dialog/city-dialog.component';
     DataTableComponent,
     UserDataTableComponent,
     MaterialFormComponent,
-    CityDialogComponent
+    CityDialogComponent,
+    NgTrimTextDirective,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,

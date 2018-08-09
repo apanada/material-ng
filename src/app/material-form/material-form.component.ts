@@ -45,6 +45,10 @@ export class MaterialFormComponent implements OnInit {
     });
   }
 
+  submitData() {
+    console.log(this.firstFormGroup.value);
+  }
+
 }
 
 export interface Animal {

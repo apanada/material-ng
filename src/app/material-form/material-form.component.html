@@ -13,7 +13,7 @@
           <ng-template matStepLabel>Fill out your name</ng-template>
           <div class="col-md-6 d-inline-block">
             <mat-form-field>
-              <input matInput placeholder="Last name" formControlName="lastName" required>
+              <input matInput placeholder="Last name" formControlName="lastName" required trim="blur">
             </mat-form-field>
             <mat-form-field>
               <input matInput placeholder="First name" formControlName="firstName" required>
@@ -32,6 +32,7 @@
             </mat-form-field>
           </div>
           <div class="col-md-12">
+            <button mat-raised-button [disabled]="firstFormGroup.invalid" (click)="submitData()">Submit</button>
             <button mat-raised-button matStepperNext>Next</button>
           </div>
         </form>
