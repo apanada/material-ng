@@ -16,6 +16,7 @@ import { MaterialFormComponent } from './material-form/material-form.component';
 import { CityDialogComponent } from './city-dialog/city-dialog.component';
 import { NgTrimTextDirective } from './directives/ng-trim-text/ng-trim-text.directive';
 import { TemplateFormComponent } from './template-form/template-form.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TemplateFormComponent } from './template-form/template-form.component';
     MaterialFormComponent,
     CityDialogComponent,
     NgTrimTextDirective,
-    TemplateFormComponent
+    TemplateFormComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
